@@ -23,3 +23,9 @@ Write a few brief paragraphs that discuss:
   implementing it? (You don't have to write code for this part. You could say
   "I would use extension to..." or "Scala's rules for valid
   identifiers prevent...")
+  
+This program easily converts from a char and string to a regular language, which is very nice. This means that is is very easy to create a regular language from a simple string. 
+
+One difficulty that I find is you need to explicitly write the regular expressions in order to complete them. For example, it would be very nice if you could write in the string `"c*"`, but in reality you need to write `'c' <*>` in order to use the star expression. I think that it would be easier for users if we changed the syntax to allow regular expressions to be written within strings instead of assuming all values in the string are characters. Or, maybe another way to deal with this is to ban chars like `'*'` from being characters so that there is no confusion for the user.
+
+I think both toDFA and the conversion from a regularLanguage to a DFA work well. It is nice that the alphabet is automatically created for you from the chars in the regular language, but I could imagine that some users might want to be able to add additional chars to the alphabet. While the toDFA function requires that you pass in your own alphabet entirely created on your own, the conversion does not let you pass in an alphabet at all. I think that we should add the ability to create a default language, or add more chars to the language for the conversion. I also then think that we should make the chars helper function actually be accessible to the user so they can get the baseic alphabet of a regular language.
